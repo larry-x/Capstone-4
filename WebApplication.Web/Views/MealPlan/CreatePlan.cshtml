@@ -1,0 +1,20 @@
+﻿@model MealPlanViewModel
+@{
+    ViewData["Title"] = "CreatePlan";
+}
+
+<div class="card-content">
+
+    <h2 class="page-title">Create a New Meal Plan</h2>
+
+    <form asp-action="CreatePlan" asp-controller="MealPlan" method="POST">
+        <div class="form-line">
+            <label asp-for="PlanName">Give your new plan a name: </label>
+            <input asp-for="PlanName" value="" />
+            
+            <span class="e-message">@TempData["P"]</span>
+            <button id="munbutton" class="unbutton" type="submit">Create Plan</button>
+        </div>
+    </form>
+</div>
+

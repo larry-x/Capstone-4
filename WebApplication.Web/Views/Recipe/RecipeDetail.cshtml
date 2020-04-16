@@ -1,0 +1,26 @@
+﻿@model Recipe
+@{
+    ViewData["Title"] = "RecipeDetail";
+
+}
+
+<div class="card-content">
+
+    <h2 class="page-title">@Model.Name</h2>
+
+    <p class="stylebold">@Model.Category</p>
+    <p>@Model.Description</p>
+    <div class="ingredient-list">
+        @foreach (string[] item in Model.Ingredients)
+        {
+
+            <p>@item[0] @item[1] @item[2]</p>
+        }
+    </div>
+    <p>@Model.Instructions</p>
+
+    <a class="addbutton" id="editbutton" asp-controller="Recipe" asp-action="ModifyRecipe" asp-route-id="@Model.Id"><i class="fas fa-pencil-alt"></i>Edit Recipe</a>
+
+</div>
+
+

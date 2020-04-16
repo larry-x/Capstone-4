@@ -1,0 +1,18 @@
+﻿@model NewRecipeViewModel
+@{
+    ViewData["Title"] = "NewIngredient";
+}
+
+<div class="card-content">
+
+    <h2 class="page-title">New Ingredient</h2>
+
+    <form asp-action="NewIngredient" asp-controller="Recipe" method="POST">
+        <div class="form-line">
+            <label asp-for="NewIngredient">Add A New Ingredient to your list of ingredients</label>
+            <input asp-for="NewIngredient" value="" />
+            <span class="e-message">@TempData["Error"]</span>
+            <button id="munbutton" class="unbutton" type="submit">Add Ingredient</button>
+        </div>
+    </form>
+</div>

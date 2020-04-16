@@ -1,0 +1,60 @@
+﻿@model NewRecipeViewModel
+@{
+    ViewData["Title"] = "ModifyRecipe";
+    string list = "";
+}
+
+
+<div class="card-content">
+
+    <h2 class="page-title">Edit My Recipe: @Model.NewRecipe.Name</h2>
+
+    <div class="i-list">
+        <h4>Ingredients</h4>
+        <div class="ingredient-list">
+            @foreach (string[] line in Model.NewRecipe.Ingredients)
+            {
+                list = line[0] + " " + line[1] + " " + line[2];
+                <p>
+                    @list
+                    <a class="deletebutton" asp-controller="Recipe" asp-action="DeleteIngredient" asp-route-name="@line[2]">Delete</a>
+                </p>
+            }
+        </div>
+    </div>
+    <br />
+    <a class="linkbutton" asp-controller="Recipe" asp-action="AddIngredient" asp-route-id="@Model.NewRecipe.Id">Add Another Ingredient</a>
+
+    <br />
+    <span class="e-message">@TempData["E"]</span>
+
+    <form asp-action="ModifyRecipe" asp-controller="Recipe" method="post">
+        <div class="form-line">
+            <label asp-for="NewRecipe.Instructions">Enter recipe instructions: </label>
+            <textarea asp-for="NewRecipe.Instructions" rows="4" value="@Model.NewRecipe.Instructions"></textarea>
+            <span class="e-message">@TempData["T"]</span>
+        </div>
+        <div class="form-line">
+            <label asp-for="NewRecipe.Category">Select Category: </label>
+            <select asp-for="NewRecipe.Category">
+                <option value="">Choose Category</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+            </select>
+            <span class="e-message">@TempData["C"]</span>
+        </div>
+        <div class="form-line">
+            <label asp-for="NewRecipe.Description">Enter recipe description: </label>
+            <textarea asp-for="NewRecipe.Description" value="@Model.NewRecipe.Description"></textarea>
+            <span class="e-message">@TempData["D"]</span>
+        </div>
+        <div class="form-line">
+            <label asp-for="NewRecipe.Name">Enter recipe's name: </label>
+            <input asp-for="NewRecipe.Name" value="@Model.NewRecipe.Name" />
+            <span class="e-message">@TempData["N"]</span>
+        </div>
+        <button type="submit">Save Changes</button>
+    </form>
+
+</div>

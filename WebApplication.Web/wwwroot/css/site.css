@@ -1,0 +1,439 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none; 
+    color: black;
+}
+
+a i{
+    padding-left: 0.2em;
+    padding-right: 1em;
+    font-size: 2em;
+}
+
+input, select {
+    max-width: 15em;
+}
+
+textarea {
+    max-width: 100%;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: darkseagreen;
+    background-image: url("../images/background.jpg");
+}
+
+.body-content {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.fancy {
+    font-family:cursive, 'Times New Roman', Times, serif;
+    color: teal;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+footer p {
+    text-align: center;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-areas: 'ad nav nav .' 
+                        'ad main main .' 
+                        ;
+    grid-gap: 20px;
+}
+
+#ad {
+    object-fit: contain;
+    grid-area: ad;
+}
+
+#ad img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+#container {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: '. material';
+    background-image: url("../images/card.png");
+    background-size: cover;
+    background-repeat: round;
+    padding-bottom: 80px;
+    margin-top: 50px;
+    min-height: 600px;
+}
+
+.card-content {
+    grid-area: material;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+    margin-left: 15%;
+    padding-right: 15%;
+}
+
+.list {
+    display:flex;
+    flex-direction: column;
+    background-image: url(../images/paper-pin.png);
+    background-size: 65%;
+    background-repeat:no-repeat;
+    padding: 15% 20% 15% 10%;
+    height: 100%;
+}
+
+.ingredient-list {
+    column-count: 2;
+}
+
+.groceries-list {
+    column-count: 2;
+    max-width: 70%
+}
+
+.list p {
+    text-align: left; 
+}
+
+.cutting-board {
+    background-image: url(../images/pink.jpg);
+    background-size: cover;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: double 5px chocolate;
+}
+
+.board-day {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5em 1.5em;
+}
+
+.recipe-link {
+    color:Highlight;
+    font-size: 1.6em;
+}
+
+.recipe-link:hover {
+    color: midnightblue;
+}
+
+.recipe-link-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-links {
+    background-color: mediumseagreen;
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.board-links a {
+    flex-basis: 14.3%;
+    flex-wrap: nowrap;
+    border: 2px dashed teal;
+    border-radius: 10px;
+}
+
+.board-links a:hover {
+    border: 3px solid white;
+    box-shadow: 1px 1px 10px 1px aliceblue;
+}
+
+.board-links img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.form-line {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-line input {
+    width: auto;
+}
+
+#nav-bar {
+    grid-area: nav;
+    display: flex;
+    height: 120px;
+    background-image: url("../images/navi.png");
+    background-size: contain;
+    background-color: darkseagreen;
+    color: dodgerblue;
+    border: 2px solid chocolate;
+    border-radius: 8px;
+    padding-top: 5px;
+    margin: 0 10px;
+}
+
+.nav-links {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-size: 1.6em;
+    list-style: none;
+}
+
+.e-message {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+}
+
+.i-list {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: darkmagenta;
+}
+
+.cate {
+    display: inline-block;
+    top: 0.3em;
+    right: 0.2em;
+}
+
+.page-title {
+    font-family: Bahnschrift, 'Gill Sans', sans-serif ;
+    font-weight: bold;
+    color: rebeccapurple;
+    text-align: left;
+}
+
+.stylebold {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+p {
+    font-family:'Ink Free', cursive, 'HoloLens MDL2 Assets', sans-serif;
+    font-size: 1.2em;
+}
+
+.addbutton {
+    background-color: forestgreen;
+    color: aliceblue;
+    font-size: 1.2em;
+    border: 2px solid lightgray;
+    box-shadow: 0 8px 16px 0 darkseagreen;
+    width: 16em;
+    padding-right: 1em;
+    margin: 10px;
+    margin-left: 0;
+}
+
+.addbutton2 {
+    width: 17em;
+}
+
+#editbutton {
+    width: 13em;
+}
+
+.addbutton:hover {
+    color: aliceblue;
+    border: 2px solid gold;
+}
+
+.addbutton i {
+    color: limegreen;
+}
+
+.createbutton {
+    display: inline-block;
+    font-size: 1.4em;
+    background-color: cornflowerblue;
+    padding: 0.1em 1em;
+    margin-top: 1em;
+    margin-left: 0;
+    border: 1px solid darkgrey;
+    align-self: flex-start;
+    border-radius: 8px;
+    margin-left: 0;
+}
+
+.createbutton:hover {
+    color: aliceblue;
+    border: 1px solid goldenrod;
+}
+
+.deletebutton {
+    background-color: lightgrey;
+    font-size: 0.85rem;
+    padding: 0.1em 0.2em;
+    border: 2px solid darkgrey; 
+    border-radius: 15px;
+}
+
+.deletebutton:hover {
+    background-color: dimgray;
+}
+
+.listbutton {
+    background-color: cornflowerblue;
+    padding: 0.2em 0.2em 0 0.5em;
+    border: 1px solid darkgrey;
+    width: 14em;
+    border-radius: 8px;
+}
+
+.listbutton:hover {
+    color: aliceblue;
+}
+
+.unbutton {
+    display: inline;
+    font-size: 0.8em;
+    background-color: cornflowerblue;
+    padding: 0.1em 0.2em;
+    margin-left: 1em;
+    border: 1px solid darkgrey;
+    width: 15em;
+    border-radius: 8px;
+}
+
+.unbutton:hover {
+    color: aliceblue;
+}
+
+#munbutton {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-left: 0;
+}
+
+.linkbutton {
+    background-color: forestgreen;
+    color: aliceblue;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    width: 50%;
+    border: 3px double lightslategray;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 darkseagreen;
+    margin-top: 1em;
+}
+
+.linkbutton:hover {
+    border: 3px solid chocolate;
+}
+
+.removebutton {
+    align-self: flex-end;
+    font-size: 0.7em;
+    font-weight: bold;
+    margin: 0;
+    width: 10em;
+}
+
+.removebutton i {
+    color: red;
+}
+
+.nav-button {
+    color: aliceblue;
+    background-color: deepskyblue;
+    opacity: 0.9;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0);
+    padding: 0.5em 1em;
+    text-shadow: 0 0 6px midnightblue, 0px 0px 15px midnightblue;
+}
+
+.nav-button:hover {
+    color: aliceblue;
+    opacity: 1;
+    background-color: deepskyblue;
+    border: 1px solid #204066;
+}
+
+.recipe-tile {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../images/straw4.jpg);
+    opacity: .9;
+    background-size: cover;
+    padding: 0.5em 1em;
+    margin: 1em auto;
+    border-radius: 10px;
+    border: 3px solid darkgrey;
+    max-width: 800px;
+}
+
+.recipe-tile:hover {
+    border: 3px solid blueviolet;
+    box-shadow: 1px 1px 10px 1px rebeccapurple;
+    color: black;
+}
+.plan-tile {
+    background-image: url(../images/paper.jpg);
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tile {
+    display:block;
+    width: 100%;
+}
+
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

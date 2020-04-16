@@ -1,0 +1,31 @@
+﻿@using WebApplication.Web.Models.Account;
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="card-content">
+
+    <h3 class="page-title">Welcome back to your Meal Planner</h3>
+
+    <form asp-controller="Account" asp-action="Index" method="post">
+        <span class="e-message">@TempData["Login"]</span>
+        <div class="form-line">
+            <label asp-for="Email"></label>
+            <input type="email" asp-for="Email" />
+            <span class="e-message" asp-validation-for="Email"></span>
+        </div>
+        <div class="form-line">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" />
+            <span class="e-message" asp-validation-for="Password"></span>
+        </div>
+        <button type="submit" class="addbutton">Login</button>
+
+    </form>
+    <a class="createbutton" asp-controller="Account" asp-action="Register"><i class="fas fa-user"></i>Create an Account</a>
+
+</div>
+
+<script src="~/js/ads.js" crossorigin="anonymous"></script>

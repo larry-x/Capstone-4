@@ -1,0 +1,26 @@
+﻿@model IDictionary<int, string>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card-content">
+
+    <h2 class="page-title">Here are your Meal Plans!</h2>
+
+    <a class="addbutton addbutton2" asp-area="" asp-controller="MealPlan" asp-action="CreatePlan">
+        <i class="fas fa-plus"></i>Add a new Meal Plan!
+    </a>
+
+    @foreach (KeyValuePair<int, string> kvp in Model)
+    {
+    <div class="recipe-tile plan-tile">
+        <a class="tile" asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@(kvp.Key)">
+                <h4> @kvp.Value </h4>
+        </a>
+        <a asp-controller="MealPlan" asp-action="GroceryList" asp-route-planId="@(kvp.Key)" class="listbutton">
+            View Grocery List
+        </a>
+    </div>
+    }
+
+</div>

@@ -1,0 +1,32 @@
+﻿@using WebApplication.Web.Models.Account;
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="card-content">
+
+    <h3 class="page-title">Register</h3>
+
+    <form asp-controller="Account" asp-action="Register" method="post">
+        <div class="form-line">
+            <label asp-for="Email"></label>
+            <input type="email" asp-for="Email" />
+            <span class="e-message" asp-validation-for="Email"></span>
+        </div>
+        <div class="form-line">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" />
+            <span class="e-message" asp-validation-for="Password"></span>
+        </div>
+        <div class="form-line">
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" />
+            <span class="e-message" asp-validation-for="ConfirmPassword"></span>
+        </div>
+
+        <input type="submit" value="Register" class="addbutton" />
+
+    </form>
+</div>

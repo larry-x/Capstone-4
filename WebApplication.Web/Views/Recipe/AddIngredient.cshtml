@@ -1,0 +1,40 @@
+﻿@model NewRecipeViewModel
+@{
+    ViewData["Title"] = "AddIngredient";
+}
+
+
+<div class="card-content">
+    <h2 class="page-title">Add an Ingredient</h2>
+
+    <form asp-action="AddIngredient" asp-controller="Recipe" method="POST">
+        <div class="form-line">
+            <label asp-for="SelectedIngredient">Select Ingredient</label>
+            <select asp-for="SelectedIngredient" asp-items="Model.AvailableIngredients">
+                <option value="">Choose Ingredient</option>
+            </select>
+            <span class="e-message">@TempData["I"]</span>
+        </div>
+        <div class="form-line">
+            <label asp-for="SelectedQuantity">Quantity:</label>
+            <input asp-for="SelectedQuantity" value="" />
+            <span class="e-message">@TempData["Q"]</span>
+        </div>
+        <label asp-for="SelectedMeasurement">Unit of Measurement (cup, tsp, whole, etc.):</label>
+        <input asp-for="SelectedMeasurement" value="" />
+        <span class="e-message">@TempData["M"]</span>
+        <div class="form-line">
+            <button class="linkbutton" type="submit">Add Ingredient to Recipe</button>
+        </div>
+    </form>
+
+    <form asp-action="NewIngredient_M" asp-controller="Recipe" method="POST">
+        <div class="form-line">
+            <label asp-for="NewIngredient">Didn't find what you were looking for? Expand your list of ingredients</label>
+            <input asp-for="NewIngredient" value="" />
+            <span class="e-message">@TempData["Error"]</span>
+            <button id="munbutton" class="unbutton" type="submit">Add Ingredient</button>
+        </div>
+    </form>
+
+</div>

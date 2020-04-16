@@ -1,0 +1,26 @@
+﻿@model List<Recipe>
+@{
+    ViewData["Title"] = "RecipeLibrary";
+}
+
+<div class="card-content">
+
+    <h2 class="page-title">My Recipe Library</h2>
+    <a class="addbutton" asp-area="" asp-controller="Recipe" asp-action="AddRecipe">
+        <i class="fas fa-plus"></i>Add a new Recipe!</a>
+
+    @foreach (Recipe recipe in Model)
+    {
+        <a asp-controller="Recipe" asp-action="RecipeDetail" asp-route-id="@(recipe.Id)">
+            <div class="recipe-tile">
+                <h4> @recipe.Name </h4>
+                <span class="cate">@recipe.Category</span>
+                <p class="cent">@recipe.Description</p>
+
+            </div>
+        </a>
+    }
+
+
+
+</div>

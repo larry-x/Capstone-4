@@ -1,0 +1,62 @@
+﻿@model MealPlanViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+<div class="card-content">
+    <div class="cutting-board">
+        <h2 class="page-title">@Model.PlanName | Day: @(Model.Day + 1)</h2>
+
+        <div class="board-day">
+            @for (int i = 0; i < 3; i++)
+            {
+                <h4>@Model.MealType(i) :</h4>
+                if (Model.Meals[i + (3*Model.Day)].RecipeId == 0)
+                {
+                    <form class="recipe-link-button" asp-controller="MealPlan" asp-action="AddRecipeToPlan" method="post" asp-route-orderId="@(i+1+(3*Model.Day))">
+                        <select asp-for="RecipeId" asp-items="Model.AvailableRecipes">
+                            <option value="">Choose Recipe</option>
+                        </select>
+                        <button type="submit" class="linkbutton setbutton">Set Meal</button>
+                        <span class="e-message">@TempData["R" + i.ToString()]</span>
+                    </form>
+                }
+                else
+                {
+                    <div class="recipe-link-button">
+                        <a class="recipe-link" asp-controller="Recipe" asp-action="RecipeDetail" asp-route-id="@Model.Meals[i + (3*Model.Day)].RecipeId">
+                            @Model.Meals[i + (3 * Model.Day)].RecipeName
+                        </a>
+                        <form asp-controller="MealPlan" asp-action="DeleteRecipeFromPlan" asp-route-recipeId="@Model.Meals[i + (3*Model.Day)].RecipeId" asp-route-orderId="@(i+1+(3*Model.Day))">
+                            <input type="hidden" asp-for="Meals[i + (3*Model.Day)].RecipeId" />
+                            <button type="submit" class="deletebutton removebutton"><i class="fas fa-times"></i>  Remove Meal</button>
+                        </form>
+                    </div>
+                }
+            }
+        </div>
+        <h3 class="fancy">Select a Day</h3>
+        <div class="board-links">
+            <a asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@Model.Id" asp-route-day="0">
+                <img src="~/images/c1.png" />
+            </a>
+            <a asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@Model.Id" asp-route-day="1">
+                <img src="~/images/c2.png" />
+            </a>
+            <a asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@Model.Id" asp-route-day="2">
+                <img src="~/images/c3.png" />
+            </a>
+            <a asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@Model.Id" asp-route-day="3">
+                <img src="~/images/c4.png" />
+            </a>
+            <a asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@Model.Id" asp-route-day="4">
+                <img src="~/images/c5.png" />
+            </a>
+            <a asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@Model.Id" asp-route-day="5">
+                <img src="~/images/c6.png" />
+            </a>
+            <a asp-controller="MealPlan" asp-action="Detail" asp-route-planId="@Model.Id" asp-route-day="6">
+                <img src="~/images/c7.png" />
+            </a>
+        </div>
+    </div>
+</div>

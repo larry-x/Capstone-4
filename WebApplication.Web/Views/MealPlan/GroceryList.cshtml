@@ -1,0 +1,17 @@
+﻿@model Groceries
+@{
+    ViewData["Title"] = "GroceryList";
+}
+<div class="card-content list">
+
+
+        <h4 class="page-title">Grocery List For @Model.PlanName</h4>
+        <div class="groceries-list">
+            @foreach (string ing in Model.GroceryList)
+            {
+
+                <p>@ing</p>
+
+            }
+        </div>
+</div>
